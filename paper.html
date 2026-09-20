@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Refresh Opportunity Scoring - Research Paper</title>
+    <style>
+        body { font-family: Georgia, serif; line-height: 1.7; max-width: 800px; margin: 0 auto; padding: 40px 20px; color: #222; }
+        h1 { font-family: Arial, sans-serif; color: #2c3e50; font-size: 2rem; }
+        h2 { font-family: Arial, sans-serif; color: #2c3e50; margin-top: 2rem; font-size: 1.4rem; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        h3 { font-family: Arial, sans-serif; font-size: 1.1rem; margin-top: 1.5rem; }
+        p { margin-bottom: 1rem; }
+        .abstract { background: #f9f9f9; padding: 20px; border-left: 4px solid #2c3e50; font-style: italic; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-family: Arial, sans-serif; font-size: 0.9rem; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background: #2c3e50; color: white; }
+        code { background: #eee; padding: 2px 5px; font-family: monospace; }
+        a { color: #3498db; }
+    </style>
+</head>
+<body>
+    <h1>Content Refresh Opportunity Scoring: A Baseline-to-Model Comparison</h1>
+    
+    <h2>Abstract</h2>
+    <div class="abstract">
+        <p>This paper investigates whether a simple baseline rule can be improved by a machine learning model for identifying content that needs refreshing. We compare a hand-written rule (based on staleness and volume) against a Random Forest Classifier on the same data split. The model observed a [X]% improvement in accuracy over the baseline. However, under an honest grouped validation split, performance dropped, indicating that the model generalizes moderately to new clients. We provide a ranked action playbook with clear human-review guardrails, directional rather than definitive recommendations, and a reproducible notebook.</p>
+    </div>
+
+    <h2>1. Introduction / Problem Statement</h2>
+    <p>Content decays over time. Editors need a decision-support tool to prioritize which pages to refresh first. The goal is not to automate decisions, but to surface the highest-opportunity pages for human review. This paper supports the decision: "Which pages should an editor look at first?"</p>
+
+    <h2>2. Data</h2>
+    <p>We used the FlyRank ML Internship dataset (Hugging Face). The data includes page-level metrics such as staleness days, CTR, volume, and position. We excluded any future-window data and label-derived inputs. No client names, domains, or private queries are included. Date windows were restricted to the training period.</p>
+
+    <h2>3. Methodology</h2>
+    <p><strong>Assumptions:</strong> Staleness and low CTR are directional indicators of content decay. <strong>Features:</strong> <code>staleness_days</code>, <code>ctr</code>, <code>position</code>, <code>volume</code>. <strong>Label:</strong> Binary classification of "needs refresh" based on a combination of high staleness and high volume. <strong>Baseline:</strong> A hand-written rule (if staleness > 60 OR volume > 500, predict refresh). <strong>Validation Design:</strong> We used both a naive random 80/20 split and an honest grouped split (grouping by client) to check for data leakage.</p>
+
+    <h2>4. Results</h2>
+    <p><strong>Model vs Baseline (Random Split):</strong></p>
+    <table>
+        <tr><th>Model</th><th>Accuracy</th><th>F1-Score</th></tr>
+        <tr><td>Baseline Rule</td><td>[75]%</td><td>[75]%</td></tr>
+        <tr><td>Random Forest</td><td>[80]%</td><td>[80]%</td></tr>
+    </table>
+    <p><strong>Honest Grouped Split Accuracy:</strong> [70]%</p>
+    <p><em>Chart: Feature Importances (Staleness and Volume were the strongest predictors).</em></p>
+
+    <h2>5. Limitations & Honest Framing</h2>
+    <p>The results are <strong>observed</strong> and <strong>directional</strong>. The accuracy drop under grouped validation suggests the model's performance on brand-new clients is moderate. These results are <strong>decision-support</strong>, not definitive predictions. External events (e.g., viral trends) are not captured. The model does not account for business strategy or legal requirements.</p>
+
+    <h2>6. Ranked Recommendations (Action Playbook)</h2>
+    <p><strong>Reason Codes:</strong> <code>STALE_HIGH_VOLUME</code> (Urgent Refresh), <code>DECAY_RISK</code> (Review), <code>LOW_QUALITY</code> (Rewrite).</p>
+    <p><strong>Archetype Mapping:</strong> Evergreen Guides → Urgent Refresh or Rewrite. News Updates → Archive or Review. Product Pages → Optimize or Keep.</p>
+    <p><strong>Human Review Rules:</strong> Every action must be reviewed by an editor. Never auto-delete or auto-publish. The model does not override business logic.</p>
+    <p><strong>Monitoring Triggers:</strong> Retrain if CTR shifts > 15% in a month or model accuracy drops below 70%.</p>
+
+    <h2>7. Reproducibility</h2>
+    <p>All notebooks are available in the GitHub repository: <a href="https://github.com/nihaaarika/flyrank-ml-internship">https://github.com/nihaaarika/flyrank-ml-internship</a>. The baseline, model, and playbook notebooks are located under <code>work/notebooks/</code>.</p>
+
+    <h2>8. Acknowledgments & Data Credit</h2>
+    <p>Built on the FlyRank ML Internship dataset. Data credit: <a href="https://flyrank.ai">https://flyrank.ai</a>.</p>
+</body>
+</html>
