@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <!-- SEO Meta Tags -->
+    <title>Niharika | AI Fluency Intern & ML Portfolio</title>
+    <meta name="description" content="Portfolio of Niharika, AI Fluency Intern at FlyRank. Building systems and workflows that turn AI chaos into clear, hire-ready proof.">
+    <meta name="author" content="Niharika">
+    
+    <!-- Open Graph / Social Share Preview -->
+    <meta property="og:title" content="Niharika | AI Fluency Intern Portfolio">
+    <meta property="og:description" content="Portfolio of Niharika, AI Fluency Intern at FlyRank. Building systems and workflows that turn AI chaos into clear, hire-ready proof.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nihariikaportfolio.netlify.app">
+    <meta property="og:image" content="https://nihariikaportfolio.netlify.app/preview.png">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Niharika | AI Fluency Intern Portfolio">
+    <meta name="twitter:description" content="Portfolio of Niharika, AI Fluency Intern at FlyRank.">
+
+    <!-- Google Analytics 4 (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MKF1JWWFZ3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-MKF1JWWFZ3');
+    </script>
+
+    <style>
+        /* Base styles (mobile-first) */
+        body { 
+            font-family: Arial, sans-serif; 
+            line-height: 1.6; 
+            margin: 0; 
+            padding: 20px; 
+            color: #333; 
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        h1 { color: #2c3e50; font-size: 1.8rem; }
+        h2 { color: #2c3e50; margin-top: 2rem; font-size: 1.4rem; }
+        a { color: #3498db; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        
+        .links { margin-top: 20px; margin-bottom: 30px; }
+        .links a { 
+            display: inline-block; 
+            margin-right: 10px; 
+            margin-bottom: 10px; 
+            padding: 12px 16px; 
+            background: #2c3e50; 
+            color: white; 
+            border-radius: 5px; 
+            text-decoration: none;
+            font-size: 1rem;
+        }
+        .links a:hover { background: #1a252f; }
+        
+        form { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 15px; 
+            max-width: 500px; 
+            margin-top: 20px;
+        }
+        label { font-weight: bold; display: block; margin-bottom: 5px; }
+        input, textarea { 
+            width: 100%; 
+            padding: 12px; 
+            border: 1px solid #ccc; 
+            border-radius: 5px; 
+            font-family: inherit;
+            font-size: 16px; /* Prevents zoom on iOS */
+            box-sizing: border-box;
+        }
+        button { 
+            padding: 14px 16px; 
+            background: #2c3e50; 
+            color: white; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-size: 1rem;
+            width: 100%;
+        }
+        button:hover { background: #1a252f; }
+        
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <h1>Niharika</h1>
+    <p>Welcome to my portfolio! I am an AI Fluency Intern at FlyRank, building systems and workflows that turn AI chaos into clear, hire-ready proof.</p>
+    
+    <h2>Connect with me</h2>
+    <div class="links">
+        <a href="https://www.linkedin.com/in/niharika-kanojia-4b896731b" target="_blank">LinkedIn</a>
+        <a href="https://github.com/nihaaarika" target="_blank">GitHub</a>
+        <a href="https://drive.google.com/file/d/1rwoRuls39hrY9dCJWgOV3ZfMCx_eOkKV/view?usp=sharing" target="_blank">CV / Resume</a>
+    </div>
+
+    <h2>What I'm Building</h2>
+    <p>Currently building my personal portfolio and completing my FlyRank internship capstone.</p>
+
+    <h2>Projects</h2>
+    <ul>
+        <li><strong>FlyRank ML Internship - Baseline Action Score:</strong> Built a Random Forest Classifier to predict page refresh needs, compared against a baseline rule, and audited for data leakage.</li>
+        <li><strong>Personal Portfolio Website:</strong> Built and deployed a responsive static site using HTML, CSS, and Netlify Forms.</li>
+    </ul>
+
+    <h2>Contact Me</h2>
+    <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="contact" />
+        
+        <!-- Hidden honeypot field to prevent spam -->
+        <p style="position: absolute; overflow: hidden; clip: rect(0 0 0 0); height: 1px; width: 1px; margin: -1px; padding: 0; border: 0;">
+            <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+        </p>
+        
+        <div>
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" placeholder="e.g., Jane Doe" required />
+        </div>
+        
+        <div>
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" placeholder="e.g., jane@example.com" required />
+        </div>
+        
+        <div>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" placeholder="Your message..." required></textarea>
+        </div>
+        
+        <button type="submit">Send Message</button>
+    </form>
+
+    <footer>
+        <!-- PASTE YOUR FLYRANK BADGE CODE HERE -->
+        <p>&copy; 2026 Niharika Built with AI Fluency.</p>
+    </footer>
+</body>
+</html>
